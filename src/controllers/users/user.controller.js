@@ -1,4 +1,4 @@
-const userQueries = require('./../../querys/userQueries');
+const userQueries = require('../../querys/userQueries');
 const db = require('../../config/db.config');
 
 exports.updateUser = async (req, res) => {
@@ -44,3 +44,15 @@ exports.getUserByAny = async (req, res) => {
         res.status(500).json({ error: 'error to get user, not found' });
     }
 }
+
+exports.getUsers = async (req, res) => {
+    try {
+        const [results] = await db.execute(userQueries.getUsers);
+        res.status(200).json(results);
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ error: 'error to get Users' });
+    }
+}
+
+
