@@ -34,6 +34,16 @@ exports.login = async (req, res) => {
     }
 };
 
+exports.getUsers = async (req, res) => {
+    try {
+        const [results] = await db.execute(authQueries.getUsers);       
+        res.status(200).json(results);
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ error: 'error to get Users' });
+    }
+}
+
 exports.logout = (req, res) => {
     res.status(200).json({ message: 'Successful Logout' });
 };

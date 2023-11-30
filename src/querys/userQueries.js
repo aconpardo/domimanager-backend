@@ -4,7 +4,7 @@ const userQueries = {
     getUserByAny: 'SELECT * FROM usuario WHERE nombre like ? or apellido like ? or rut like ? ',
     getUserByRut: 'SELECT * FROM usuario WHERE rut = ?',
     getUserByRutAndUser: 'SELECT * FROM usuario WHERE rut = ? or nombre_usuario = ?',
-    getUsers: 'SELECT * FROM usuario',
+    
 }
 
 module.exports = userQueries;
